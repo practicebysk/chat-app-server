@@ -13,7 +13,7 @@ app.use(express.json());
 app.use("/api/auth", userRoutes);
 app.use("/api/messages", messageRoutes);
 
-const connectToMongo = async () => {
+const connectToMongo = async ()  => {
   try {
     await mongoose.connect("mongodb+srv://chat-app:lglg12@cluster0.wn0wl6r.mongodb.net/chat-app", {});
     const db = mongoose.connection;

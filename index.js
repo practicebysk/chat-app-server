@@ -15,7 +15,10 @@ app.use("/api/messages", messageRoutes);
 
 const connectToMongo = async ()  => {
   try {
-    await mongoose.connect("mongodb+srv://chat-app:lglg12@cluster0.wn0wl6r.mongodb.net/chat-app", {});
+    await mongoose.connect(
+      process.env.MONGO_URL,
+      {}
+    );
     const db = mongoose.connection;
     db.on("error", console.error.bind(console, "MongoDB connection error:"));
     db.once("open", () => {
@@ -26,8 +29,8 @@ const connectToMongo = async ()  => {
   }
 };
 connectToMongo();
-const server = app.listen(3000, () => {
-  console.log(`Server Started on Port,${3000}`);
+const server = app.listen(process.env.PORT, () => {
+  console.log(`Server Started on Port,${process.env.PORT}`);
 });
 
 const io = socket(server, {

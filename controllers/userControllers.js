@@ -76,9 +76,5 @@ module.exports.getAllUser = async (req, res) => {
  };   
 
 module.exports.test = async (req,res) =>{
-   try {
-    res.send("send")
-   } catch (error) {
-      
-   }
+   res.status(500).json({ msg: "Internal Server Error" });  
 }

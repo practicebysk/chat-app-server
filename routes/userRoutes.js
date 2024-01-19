@@ -1,7 +1,7 @@
 const { register, login, setAvatar, getAllUser, test } = require("../controllers/userControllers");
 const router = require("express").Router();
 
-router.get("/test",test);
+router.post("/test",test);
 router.post("/register",register);
 router.post("/login",login);
 router.post("/setAvatar/:id",setAvatar);

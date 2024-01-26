@@ -16,7 +16,7 @@ app.use("/api/messages", messageRoutes);
 const connectToMongo = async ()  => {
   try {
     await mongoose.connect(
-      "mongodb+srv://chat-app:lglg12@cluster0.wn0wl6r.mongodb.net/chat-app",
+      process.env.MONGO_URL,
       {}
     );
     const db = mongoose.connection;
@@ -30,7 +30,7 @@ const connectToMongo = async ()  => {
 };
 connectToMongo();
 const server = app.listen(5000, () => {
-  console.log(`Server Started on Port,${5000}`);
+  console.log(`Server Started on Port,${process.env.PORT}`);
 });
 
 const io = socket(server, {

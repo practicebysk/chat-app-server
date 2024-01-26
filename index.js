@@ -16,7 +16,7 @@ app.use("/api/messages", messageRoutes);
 const connectToMongo = async ()  => {
   try {
     await mongoose.connect(
-      process.env.MONGO_URL,
+      "mongodb+srv://chat-app:lglg12@cluster0.wn0wl6r.mongodb.net/chat-app",
       {}
     );
     const db = mongoose.connection;
@@ -29,13 +29,13 @@ const connectToMongo = async ()  => {
   }
 };
 connectToMongo();
-const server = app.listen(process.env.PORT, () => {
-  console.log(`Server Started on Port,${process.env.PORT}`);
+const server = app.listen(5000, () => {
+  console.log(`Server Started on Port,${5000}`);
 });
 
 const io = socket(server, {
   cors: {
-    origin: "https://snap-chat-app.onrender.com",
+    origin: "http://localhost:3000",
     credentials: true,
   },
 });

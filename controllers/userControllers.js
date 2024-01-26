@@ -76,4 +76,5 @@ module.exports.getAllUser = async (req, res) => {
  };   
 
 module.exports.test = async (req,res) =>{
+   res.send("done")
 }
